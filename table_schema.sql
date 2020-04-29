@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS salaries CASCADE;
 
 --Create table departments
 CREATE TABLE departments (
-    dept_no INT NOT NULL,
+    dept_no VARCHAR(4) NOT NULL,
     dept_name VARCHAR (30),
     PRIMARY KEY (dept_no)
 );
@@ -28,7 +28,7 @@ CREATE TABLE employees (
 --unique in the primary key relationship
 CREATE TABLE dept_emp (
     emp_no INT NOT NULL REFERENCES employees(emp_no) UNIQUE,
-    dept_no INT NOT NULL REFERENCES departments(dept_no),
+    dept_no VARCHAR(4) NOT NULL REFERENCES departments(dept_no),
     from_date DATE,
     to_date DATE,
     PRIMARY KEY (emp_no, dept_no)
@@ -36,7 +36,7 @@ CREATE TABLE dept_emp (
 
 --As in the past table I use unique, but here the unique one is going to be departments    
 CREATE TABLE dept_manager (
-    dept_no INT NOT NULL REFERENCES departments(dept_no) UNIQUE,
+    dept_no VARCHAR(4) NOT NULL REFERENCES departments(dept_no) UNIQUE,
     emp_no INT NOT NULL REFERENCES dept_emp(emp_no),
     from_date DATE,
     to_date DATE,
