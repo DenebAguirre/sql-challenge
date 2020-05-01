@@ -3,3 +3,4 @@
 .vscode/
 /EmployeesSQL/data/
 /EmployeesSQL/.DS_Store
+/EmployeesSQL/config.py
